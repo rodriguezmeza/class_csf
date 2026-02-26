@@ -20,6 +20,8 @@ $ python setup.py build_ext --inplace
 Then test it:
 $ cd tests
 
+Set PATH to class_scf at the beginning of the yaml files.
+
 Flat
 $ time mpirun -n 4 cobaya-run --resume bao_dr2_no-nu_csf_flat.yaml 
 $ python getdist_plots_no-nu_csf_flat.py
