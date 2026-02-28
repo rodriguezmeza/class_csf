@@ -133,6 +133,9 @@ cdef class Class:
     property T_cmb_CSF:
         def __get__(self):
             return self.ba.T_cmb_CSF
+    property hrs_d:
+        def __get__(self):
+            return self.th.hrs_d
 #E
     property nonlinear_method:
         def __get__(self):
@@ -2356,6 +2359,8 @@ cdef class Class:
                 value = self.ba.H0_CSF
             elif name == 'T_cmb_CSF':
                 value = self.ba.T_cmb_CSF
+            elif name == 'hrs_d':
+                value = self.th.hrs_d
 #E
             elif name == 'Omega0_fld':
                 value = self.ba.Omega0_fld
@@ -2848,6 +2853,8 @@ make        nonlinear_scale_cb(z, z_size)
         return self.ba.H0_CSF
     def T_cmb_CSF(self):
         return self.ba.T_cmb_CSF
+    def hrs_d(self):
+        return self.th.hrs_d
 #E
 
     def spectral_distortion_amplitudes(self):

@@ -18,8 +18,8 @@ vpath .base build
 ########################################################
 
 # your C compiler:
-CC       = gcc
-#CC       = gcc-12
+#CC       = gcc
+CC       = gcc-12
 #CC       = icc
 #CC       = pgcc
 
@@ -31,7 +31,7 @@ AR        = ar rv
 # substitute python3 to python in the line below, or you can simply
 # add a compilation option on the terminal command line:
 # "PYTHON=python3 make all" (Thanks to Marius Millea for python3 compatibility)
-PYTHON ?= python
+#PYTHON ?= python
 #PYTHON = /opt/homebrew/anaconda3/envs/class-emt-env39/bin/python
 # ln -s /opt/homebrew/Cellar/gcc@12/12.4.0/lib/gcc/12 gcclibs
 #PYTHON = python3.9
@@ -100,7 +100,7 @@ CLASS_CSF = csf
 vpath %.c $(CLASS_CSF)
 CCFLAG += -DCLASS_CSF
 INCLUDES += -I../$(CLASS_CSF)
-EXTERNAL += input_csf.o background_csf.o
+EXTERNAL += input_csf.o background_csf.o thermodynamics_csf.o
 HEADERFILES += $(wildcard ./$(CLASS_CSF)/*.h)
 #include emt/Makefile_emt
 endif
@@ -113,21 +113,21 @@ TOOLS = growTable.o dei_rkck.o sparse.o evolver_rkck.o  evolver_ndf15.o arrays.o
 
 #B CLASS_CSF::
 ifeq ($(CLASS_CSFON),1)
-SOURCE = thermodynamics.o perturbations.o primordial.o fourier.o transfer.o harmonic.o lensing.o distortions.o
+SOURCE = perturbations.o primordial.o fourier.o transfer.o harmonic.o lensing.o distortions.o
 
 INPUT = input_csf.o
 BACKGROUND = background_csf.o
+THERMO = thermodynamics_csf.o
 else
 SOURCE = input.o background.o thermodynamics.o perturbations.o primordial.o fourier.o transfer.o harmonic.o lensing.o distortions.o
 
 INPUT = input.o
 BACKGROUND = background.o
+THERMO = thermodynamics.o
 endif
 #E
 
 PRECISION = precision.o
-
-THERMO = thermodynamics.o
 
 PERTURBATIONS = perturbations.o
 
@@ -176,8 +176,8 @@ INI_ALL = explanatory.ini lcdm.ini
 MISC_FILES = Makefile CPU psd_FD_single.dat myselection.dat myevolution.dat README bbn/sBBN.dat external_Pk/* cpp
 PYTHON_FILES = python/classy.pyx python/setup.py python/cclassy.pxd python/test_class.py
 
-all: class libclass.a classy
-#all: class libclass.a
+#all: class libclass.a classy
+all: class libclass.a
 
 libclass.a: $(TOOLS) $(SOURCE) $(EXTERNAL)
 	$(AR)  $@ $(addprefix build/, $(TOOLS) $(SOURCE) $(EXTERNAL))

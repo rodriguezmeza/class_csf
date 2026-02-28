@@ -24,12 +24,13 @@
 //#ifdef CLASS_CSF
 #include "input_csf.h"
 #include "background_csf.h"
+#include "thermodynamics_csf.h"
 //#else
 //#include "input.h"
 //#include "background.h"
+//#include "thermodynamics.h"
 //#endif
 //E
-#include "thermodynamics.h"
 #include "perturbations.h"
 #include "primordial.h"
 #include "fourier.h"

@@ -146,6 +146,10 @@ cdef extern from "class.h":
         double cross_idm_b
         double n_index_idm_b
         int tt_size
+#B CLASS_CSF::
+# only needed the ones that are used in pyx file
+        double hrs_d
+#
 
     cdef struct perturbations:
         ErrorMsg error_message
