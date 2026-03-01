@@ -108,8 +108,8 @@ cdef extern from "class.h":
 # only needed the ones that are used in pyx file
         short has_CSF
         double QCSF
-        double H0_CSF
-        double T_cmb_CSF
+#        double H0_CSF
+#        double T_cmb_CSF
 #E
 
     cdef struct thermodynamics:
@@ -148,7 +148,7 @@ cdef extern from "class.h":
         int tt_size
 #B CLASS_CSF::
 # only needed the ones that are used in pyx file
-        double hrs_d
+#        double hrs_d
 #
 
     cdef struct perturbations:

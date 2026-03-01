@@ -300,8 +300,8 @@ struct background
 //#ifdef CLASS_CSF    // not needed "ifdef" because they are in pyx and pxd files
   short has_CSF;      /**< presence of CSF */
     double QCSF;
-    double H0_CSF;
-    double T_cmb_CSF;
+//    double H0_CSF;
+//    double T_cmb_CSF;
 //#endif
 //E
 

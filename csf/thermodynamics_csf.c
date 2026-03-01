@@ -3915,11 +3915,11 @@ int thermodynamics_calculate_drag_quantities(
   pth->rs_d=pvecback[pba->index_bg_rs];
   pth->ds_d=pth->rs_d/(1.+pth->z_d);
 #ifdef CLASS_CSF
-    if (pba->has_CSF == _TRUE_) {
-        pth->hrs_d = pba->H0_CSF/100.0 * pth->rs_d;
-    } else {
-        pth->hrs_d = pba->H0/100.0 * pth->rs_d;
-    }
+//    if (pba->has_CSF == _TRUE_) {
+//        pth->hrs_d = pba->H0_CSF/100.0 * pth->rs_d;
+//    } else {
+//        pth->hrs_d = pba->H0/100.0 * pth->rs_d;
+//    }
 #endif
 
   return _SUCCESS_;

@@ -4,8 +4,8 @@
 #define __THERMODYNAMICS__
 
 //B EMT::
-#ifdef EMT
-#include "background_emt.h"
+#ifdef CLASS_CSF
+#include "background_csf.h"
 #else
 #include "background.h"
 #endif

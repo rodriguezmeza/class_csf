@@ -2046,10 +2046,12 @@ int background_solve(
 
 //B EMT::
 #ifdef CLASS_CSF
-    pba->H0_CSF
+/*    if (pba->has_CSF == _TRUE_) {
+        pba->H0_CSF
         = exp(-pba->QCSF)*pba->H0*_c_/1.e3; // In units as user
-                                            // understand: km/s/Mpc
-    pba->T_cmb_CSF = exp(-pba->QCSF)*pba->T_cmb;
+        // understand: km/s/Mpc
+        pba->T_cmb_CSF = exp(-pba->QCSF)*pba->T_cmb;
+    } */
 #endif
 
   /** - In a loop over lines, fill rest of background table for

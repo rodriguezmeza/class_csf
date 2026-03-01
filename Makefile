@@ -19,7 +19,9 @@ vpath .base build
 
 # your C compiler:
 CC       = gcc
+#B this is for Mac M3 Max
 #CC       = gcc-12
+#E
 #CC       = icc
 #CC       = pgcc
 
@@ -35,6 +37,9 @@ PYTHON ?= python
 #PYTHON = /opt/homebrew/anaconda3/envs/class-emt-env39/bin/python
 # ln -s /opt/homebrew/Cellar/gcc@12/12.4.0/lib/gcc/12 gcclibs
 #PYTHON = python3.9
+#B this is for Mac M3 Max
+#PYTHON = python3.12
+#E
 
 # your optimization flag
 OPTFLAG = -O3
@@ -177,7 +182,9 @@ MISC_FILES = Makefile CPU psd_FD_single.dat myselection.dat myevolution.dat READ
 PYTHON_FILES = python/classy.pyx python/setup.py python/cclassy.pxd python/test_class.py
 
 all: class libclass.a classy
+#B this is for Mac M3 Max
 #all: class libclass.a
+#E
 
 libclass.a: $(TOOLS) $(SOURCE) $(EXTERNAL)
 	$(AR)  $@ $(addprefix build/, $(TOOLS) $(SOURCE) $(EXTERNAL))
@@ -216,6 +223,7 @@ test_hyperspherical: $(TOOLS) $(TEST_HYPERSPHERICAL)
 tar: $(C_ALL) $(C_TEST) $(H_ALL) $(PRE_ALL) $(INI_ALL) $(MISC_FILES) $(HYREC) $(PYTHON_FILES)
 	tar czvf class.tar.gz $(C_ALL) $(H_ALL) $(PRE_ALL) $(INI_ALL) $(MISC_FILES) $(HYREC) $(PYTHON_FILES)
 
+#B this is for Mac M3 Max
 #classy: libclass.a python/classy.pyx python/cclassy.pxd
 #ifdef OMPFLAG
 #	cp python/setup.py python/autosetup.py
@@ -224,6 +232,7 @@ tar: $(C_ALL) $(C_TEST) $(H_ALL) $(PRE_ALL) $(INI_ALL) $(MISC_FILES) $(HYREC) $(
 #endif
 #	cd python; export CC=$(CC); $(PYTHON) autosetup.py install || $(PYTHON) autosetup.py install --user
 #	rm python/autosetup.py
+#E
 
 # Instead of these lines use: "python setup.py build" and "python setup.py install"
 classy: libclass.a python/classy.pyx python/cclassy.pxd

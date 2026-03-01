@@ -4,11 +4,11 @@
 #define __THERMODYNAMICS__
 
 //B EMT::
-#ifdef CLASS_CSF
-#include "background_csf.h"
-#else
+//#ifdef CLASS_CSF
+//#include "background_csf.h"
+//#else
 #include "background.h"
-#endif
+//#endif
 //E
 #include "evolver_ndf15.h"
 #include "evolver_rkck.h"
@@ -271,7 +271,7 @@ struct thermodynamics
   double rs_d;    /**< comoving sound horizon at baryon drag */
 
 //#ifdef CLASS_CSF
-    double hrs_d;    /**< comoving sound horizon at baryon drag time h */
+//    double hrs_d;    /**< comoving sound horizon at baryon drag time h */
 //#endif
 
   double tau_cut; /**< at at which the visibility goes below a fixed fraction of the maximum visibility, used for an approximation in perturbation module */

@@ -21,10 +21,9 @@ if b"mvec" not in MVEC_STRING:
     liblist += ["mvec","m"]
 
 # define absolute paths
-root_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".")
-root_gomp = os.path.join(os.path.dirname(os.path.abspath(__file__)), "gcclibs")
+root_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 include_folder = os.path.join(root_folder, "include")
-include_csf_folder = os.path.join(root_folder, "csf")
+include_emt_folder = os.path.join(root_folder, "emt")
 classy_folder = os.path.join(root_folder, "python")
 heat_folder = os.path.join(os.path.join(root_folder, "external"),"heating")
 recfast_folder = os.path.join(os.path.join(root_folder, "external"),"RecfastCLASS")
@@ -40,9 +39,9 @@ with open(os.path.join(include_folder, 'common.h'), 'r') as v_file:
 
 # Define cython extension and fix Python version
 classy_ext = Extension("classy", [os.path.join(classy_folder, "classy.pyx")],
-                           include_dirs=[nm.get_include(), include_folder, heat_folder, recfast_folder, hyrec_folder, include_csf_folder],
+                           include_dirs=[nm.get_include(), include_folder, heat_folder, recfast_folder, hyrec_folder, include_emt_folder],
                            libraries=liblist,
-                           library_dirs=[root_folder, GCCPATH, root_gomp],
+                           library_dirs=[root_folder, GCCPATH],
                            extra_link_args=['-lgomp']
                        )
 import sys
